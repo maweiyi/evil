@@ -7,6 +7,13 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var archives = require('./routes/archives');
+var ctx = {};
+ctx.url_for = require('./plugins/url_for').bind(ctx);
+var paginator = require('./plugins/paginator').bind(ctx);
+
+
+
 
 var app = express();
 
@@ -22,8 +29,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+  res.locals.paginator = paginator;
+  next();
+});
+
 app.use('/', index);
 app.use('/users', users);
+app.use('/archives',archives);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -34,6 +47,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  console.log("AAAAAA--->", err);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

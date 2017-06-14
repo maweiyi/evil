@@ -11,7 +11,14 @@
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
+    "hexo-pagination": "^0.1.0",
+    "lodash": "^4.17.4",
+    "mocha": "^3.4.2",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "serve-favicon": "~2.4.2",
+    "supertest": "^3.0.0",
+    "url": "^0.11.0"
   }
 }
