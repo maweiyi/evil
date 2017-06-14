@@ -1,17 +1,14 @@
 <div class="pagination">
     <div class="pagination">
         <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="archives">
-            <i class="icon-angle-left"></i>
-        </a>
-        <a class="page-number" href="archives">1</a>
-        <span class="page-number current">2</span>
-        <a class="page-number" href="archives">3</a>
-        <span class="space">&hellip;</span>
-        <a class="page-number" href="archives">30</a>
-        <a class="extend next" rel="next" href="archives">
-            <i class="icon-angle-right"></i>
-        </a>
+            <%- paginator({
+            current: 1,
+            format: 'page/%d/',
+            total: 30,
+            prev_text: '<i class="icon-angle-left"></i>',
+            next_text: '<i class="icon-angle-right"></i>',
+            mid_size: 1
+            })%>
         </nav>
     </div>
 </div>

@@ -8,7 +8,15 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var archives = require('./routes/archives');
-var ctx = {};
+var ctx = {
+    page: {
+        base: 'archives/'
+    },
+    config: {
+        root: '/'
+    }
+
+};
 ctx.url_for = require('./plugins/url_for').bind(ctx);
 var paginator = require('./plugins/paginator').bind(ctx);
 
