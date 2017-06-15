@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var archives = require('./routes/archives');
+var articles = require('./routes/posts');
 var ctx = {
     page: {
         base: 'archives/'
@@ -39,12 +40,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (req, res, next) {
   res.locals.paginator = paginator;
+  res.locals.url_for = ctx.url_for;
   next();
 });
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/archives',archives);
+app.use('/articles', articles);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
