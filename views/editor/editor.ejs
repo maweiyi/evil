@@ -1,13 +1,108 @@
 <% include ../header.ejs %>
 <body>
-<div id="editor">
-    <pre>
-        <code class="hljs javascript">var express = require(&apos;express&apos;);</code>
-    </pre>
+<div id="layout">
+    <header>
+        <h1>Simple example</h1>
+    </header>
+    <div id="test-editormd">
+                <textarea style="display:none;">[TOC]
 
+#### Disabled options
+
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
+
+#### Editor.md directory
+
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+</textarea>
+    </div>
 </div>
-<script src="/js-built/editor.js"></script>
-<script src="plugins/highlight/highlight.pack.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="plugins/md_editor/editormd.min.js"></script>
+<script src="/plugins/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad()</script>
+<script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "90%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "../lib/",
+            toolbarIcons : function() {
+                // Or return editormd.toolbarModes[name]; // full, simple, mini
+                // Using "||" set icons align right.
+                return ["undo", "redo", "|", "watch", "fullscreen", "|", "save", "back", "||", "watch", "fullscreen"]
+            },
+            toolbarIconsClass : {
+                save : "fa fa-floppy-o",  // 指定一个FontAawsome的图标类
+                back: "fa fa-reply"
+            }
+        });
+
+        /*
+         // or
+         testEditor = editormd({
+         id      : "test-editormd",
+         width   : "90%",
+         height  : 640,
+         path    : "../lib/"
+         });
+         */
+    });
+</script>
 </body>
 </html>
+<!--body class="input read-modal reader-font2">
+
+    <div id="editormd">
+        <textarea style="display:none;">### Hello Editor.md !</textarea>
+    </div>
+
+
+<script src="/js-built/editor.js"></script>
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src="/js/jquery-2.1.1.js"></script>
+<script src="/plugins/md_editor/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("editormd", {
+            path : "../lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+        });
+
+        /*
+         // or
+         var editor = editormd({
+         id   : "editormd",
+         path : "../lib/"
+         });
+         */
+    });
+</script>
+</body>
+</html-->
