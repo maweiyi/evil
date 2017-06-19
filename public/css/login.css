@@ -1,0 +1,60 @@
+.login_border {
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-right-width: 0;
+    border-left-width: 0;
+    outline: none;
+    width: 300px;
+
+}
+
+body {
+    /*background-color: #565d64;*/
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #333;
+}
+
+.password {
+    margin-top: 60px;
+
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+p > button {
+    margin-top: 30px;
+    width: 100px;
+    outline: none;
+    border: none;
+    background: transparent;
+    opacity: 0.7;
+}
+
+
+
+div {
+    margin-top: 20%;
+}
+
+
+div {
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
