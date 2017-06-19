@@ -11,6 +11,7 @@ var archives = require('./routes/archives');
 var articles = require('./routes/posts');
 var editor = require('./routes/editor');
 var login = require('./routes/login');
+var register = require('./routes/register');
 var ctx = {
     page: {
         base: 'archives/'
@@ -52,6 +53,7 @@ app.use('/archives',archives);
 app.use('/articles', articles);
 app.use('/editor', editor);
 app.use('/login', login);
+app.use('/register', register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
